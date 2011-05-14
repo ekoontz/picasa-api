@@ -22,7 +22,7 @@
   </head>
   <body>
     <?php
-    $userid = 'userid%40googlemail.com';
+    $userid = 'ekoontz';
 
     // build feed URL
     $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=photo";
