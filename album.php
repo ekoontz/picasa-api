@@ -21,8 +21,22 @@
     </style>    
   </head>
   <body>
+    <form action="?" method="get">
+        <select name="userid" onchange="submit();">
+          <option value="">Choose a user:</option>
+          <option>ekoontz</option>
+          <option>cooper81</option>
+        </select>
+    </form>
+
     <?php
+
+
     $userid = 'ekoontz';
+
+if ($_REQUEST['userid']) {
+  $userid = $_REQUEST['userid'];
+ }
 
     // build feed URL
     $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=photo";
