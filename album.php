@@ -69,12 +69,30 @@ if ($_REQUEST['userid']) {
       $tags = $media->group->keywords;
       
       echo "<h2>$summary</h2>\n";
-      echo "<table><tr><td><img src=\"" . 
-      $thumbnail->attributes()->{'url'} . "\"/></td>\n";
+      echo "<table><tr><td>";
+
+      $fullsize = $media->group->content->attributes()->{'url'};
+
+      echo "<a href=\"$fullsize\">";
+      echo "<img src=\"" . 
+	$thumbnail->attributes()->{'url'} . "\"/>";
+      echo "</a>";
+
+      echo "</td>\n";
+
+
       echo "<td><span class=\"attr\">File</span>: $title 
       <br />\n";
       echo "<span class=\"attr\">Size</span>: $size bytes 
       ($height x $width) <br />\n";
+      
+      $credit = $media->group->credit;
+      echo "<span class=\"attr\">Credit</span>: $credit 
+      <br />\n";
+
+      echo "<span class=\"attr\">Fullsize</span>: $fullsize
+      <br />\n";
+
       echo "<span class=\"attr\">Tags</span>: $tags 
       </td></tr></table>\n";
     }
