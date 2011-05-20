@@ -21,25 +21,19 @@
     </style>    
   </head>
   <body>
-    <form action="?" method="get">
-        <select name="userid" onchange="submit();">
-          <option value="">Choose a user:</option>
-          <option>ekoontz</option>
-          <option>cooper81</option>
-        </select>
-    </form>
 
     <?php
 
+    if ($_REQUEST['userid']) {
+      $userid = $_REQUEST['userid'];
+    }
 
-    $userid = 'ekoontz';
-
-if ($_REQUEST['userid']) {
-  $userid = $_REQUEST['userid'];
- }
+    if ($_REQUEST['albumid']) {
+      $albumid = $_REQUEST['albumid'];
+    }
 
     // build feed URL
-    $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=photo";
+    $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid/albumid/$albumid";
     
     // read feed into SimpleXML object
     $sxml = simplexml_load_file($feedURL);
