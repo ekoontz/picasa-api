@@ -29,11 +29,11 @@ foreach ($sxml->entry as $entry) {
   $title = $entry->title;
   $gphoto = $entry->children('http://schemas.google.com/photos/2007');
   $numphotos = $gphoto->numphotos;
-  $album_id = $gphoto->id;
+  $albumid = $gphoto->id;
 
-  $link = "album.php?albumid=$album_id&amp;userid=$userid";
+  $link = "album.php?albumid=$albumid&amp;userid=$userid";
 
-  $thumbnail = get_thumbnail($album_id);
+  $thumbnail = get_thumbnail($userid,$albumid);
 
   echo "<li><a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></li>\n"; 
 }
@@ -45,9 +45,15 @@ echo "</ul>";
 
 <?php
 
-  function get_thumbnail($album) {
-    return "http://lh5.ggpht.com/_3TAB89JPSiw/SUnSWMh3RgI/AAAAAAAAAvQ/7YCjKpOFpbo/s144/PC180015.JPG";
+  function get_thumbnail($userid,$albumid) {
+    // choose first image from given album.
+    $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid/albumid/$albumid";
 
+    $xml = simplexml_load_file($feedURL);
+
+    $entry = $xml->entry[1];
+    $media = $entry->children('http://search.yahoo.com/mrss/');
+    $thumbnail = $media->group->thumbnail[1]->attributes()->{'url'};
+    return $thumbnail;
   }
-
 ?>
