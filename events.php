@@ -31,11 +31,11 @@ foreach ($sxml->entry as $entry) {
   $numphotos = $gphoto->numphotos;
   $album_id = $gphoto->id;
 
-  $link = "album.php?album_id=$album_id&amp;userid=$userid";
+  $link = "album.php?albumid=$album_id&amp;userid=$userid";
 
   $thumbnail = get_thumbnail($album_id);
 
-  echo "<li><img src='$thumbnail'/><a href='$link'>$title</a></li>\n"; 
+  echo "<li><a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></li>\n"; 
 }
 echo "</ul>";
     ?>
