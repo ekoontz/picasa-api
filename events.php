@@ -46,12 +46,17 @@ echo "</ul>";
 <?php
 
   function get_thumbnail($userid,$albumid) {
-    // choose first image from given album.
+    // choose random image from set of images in given album.
     $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid/albumid/$albumid";
 
     $xml = simplexml_load_file($feedURL);
 
-    $entry = $xml->entry[1];
+    // count images; choose a random number between 0 and count -1 as
+    // index of picture to show.
+    $count = count($xml->entry);
+    $random = rand(0,($count - 1));
+
+    $entry = $xml->entry[$random];
     $media = $entry->children('http://search.yahoo.com/mrss/');
     $thumbnail = $media->group->thumbnail[1]->attributes()->{'url'};
     return $thumbnail;
