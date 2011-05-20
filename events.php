@@ -31,8 +31,8 @@ foreach ($sxml->entry as $entry) {
   $title = $entry->title;
   $gphoto = $entry->children('http://schemas.google.com/photos/2007');
   $numphotos = $gphoto->numphotos;
-  $albumid=$gphoto->albumid;
-  echo "<li><a href='$albumid'>$title</a></li>\n"; // try to call to album name
+  $albumid=$gphoto->id;
+  echo "<li><a href='album.php?album=$albumid'>$title</a></li>\n"; // try to call to album name
 }
 echo "</ul>";
     ?>
