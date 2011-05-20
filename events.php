@@ -13,7 +13,7 @@ body {
   <body>
     <h1>Album Listing</h2>
     <?php
-    $userid = 'ekoontz';
+    $userid = 'cooper81';
     
 // build feed URL
 $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=album";
@@ -29,11 +29,25 @@ foreach ($sxml->entry as $entry) {
   $title = $entry->title;
   $gphoto = $entry->children('http://schemas.google.com/photos/2007');
   $numphotos = $gphoto->numphotos;
-  $albumid = $gphoto->id;
-  echo "<li><a href='album.php?albumid=$albumid&amp;userid=$userid'>$title</a></li>\n"; // try to call to album name
+  $album_id = $gphoto->id;
+
+  $link = "album.php?album_id=$album_id&amp;userid=$userid";
+
+  $thumbnail = get_thumbnail($album_id);
+
+  echo "<li><img src='$thumbnail'/><a href='$link'>$title</a></li>\n"; 
 }
 echo "</ul>";
     ?>
     
   </body>
 </html>
+
+<?php
+
+  function get_thumbnail($album) {
+    return "http://lh5.ggpht.com/_3TAB89JPSiw/SUnSWMh3RgI/AAAAAAAAAvQ/7YCjKpOFpbo/s144/PC180015.JPG";
+
+  }
+
+?>
