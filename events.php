@@ -124,7 +124,7 @@ echo "<div class='tiles'><a href='$link'><img src='$thumbnail'/></a><br /><a hre
 
     $entry = $xml->entry[$random];
     $media = $entry->children('http://search.yahoo.com/mrss/');
-    $thumbnail = $media->group->thumbnail[2]->attributes()->{'url'};
+    $thumbnail = $media->group->thumbnail[1]->attributes()->{'url'};
     return $thumbnail;
   }
 ?>           
