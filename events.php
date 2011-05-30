@@ -1,33 +1,81 @@
-<!DOCTYPE html 
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <title>Listing albums</title>
-    <style>
-   body {
-     font-family: Verdana;      
-   }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Qdoba Street Tacos | Seattle | Free Street Tacos | Mexican Food</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+<link href="css/pageStyles.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#contentWrap {
+	padding: 0px;
+	height: 700px;
+}
 
-   div.container {
-     width:100%;
-   border:1px dashed blue;
-   float:left;
-   }
+.eventItem {
+	 width:230px;
+	 height:235px;
+	 float:left; 
+	 position:relative; 
+}
 
+.galleryRowLast {
+	
+}
+div.tiles { 
+width:25%;
+float:left;
+display:block;
+text-align:center;
+padding-bottom:25px;
+height:150px;
+}
 
-   div.tiles {
-   float:left;
-     margin:3px;
-   width:25%;
-     border:1px dashed green;
-   }
-    </style>    
-  </head>
-  <body>
-    <h1>Album Listing</h2>
-    <div class="container">  
-  <?php
+</style>
+<script src="js/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+function roll(img_name, img_src) {
+   document[img_name].src = img_src;
+}
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22082458-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+
+<div id="headerWrap">
+      <div id="header">
+          <div id="headerImage">
+              <a href="http://qdobastreettacos.com/index.php"><img src="images/headerImage.png" alt="Qdoba Street Tacos"></a>
+          </div>
+      </div>
+</div>
+<div id="wrapper">
+
+	<div id="container">
+    
+        <div id="contentWrap">
+        
+            <div id="navWrap">
+	<div id="navigation">
+    	<a href="http://qdobastreettacos.com/events.php"><img src="images/navEvent.png" alt="Event Photos" style="padding-right: 30px; padding-left: 90px;"></a>
+        <a href="http://qdobastreettacos.com/index.php"><img src="images/navHome.png" alt="Event Photos"></a>
+    </div>            	
+</div><!-- NAV WRAP -->            
+           	<div id="pageWrap">
+            	<img src="images/pageHeaderEvent.png" alt="Event Photos" style="padding-bottom: 0px;"><br><br>                 
+                <div id="photoGallery">
+                <!-- include code for gallery-->
+                    
+<?php
     $userid = 'cooper81';
     
 // build feed URL
@@ -36,12 +84,10 @@ $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=album";
 // read feed into SimpleXML object
 $sxml = simplexml_load_file($feedURL);
     
-$per_row = 4;
-$i = 0;
-
 // get album names and number of photos in each
-foreach ($sxml->entry as $entry) {      
-  $media = $entry->children('http://search.yahoo.com/mrss/');  // test if $media = url
+//echo "<ul>";
+foreach ($sxml->entry as $entry) {
+  $media = $entry->children('http://search.yahoo.com/mrss/'); // test if $media = url
   $title = $entry->title;
   $gphoto = $entry->children('http://schemas.google.com/photos/2007');
   $numphotos = $gphoto->numphotos;
@@ -51,23 +97,18 @@ foreach ($sxml->entry as $entry) {
 
   $thumbnail = get_thumbnail($userid,$albumid);
 
-  $mod = $i % $per_row;
-  echo "<div class='tiles'>($i)($mod) <a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></div>\n"; 
-
-  if (($i % $per_row) == 0) {
-    echo "<br/>";
-  }
-  $i++;
+ /* echo "<li><a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></li>\n";  */
+  
+echo "<div class='tiles'><a href='$link'><img src='$thumbnail'/></a><br /><a href='$link'>$title</a></div>"; 
 
 
+ 
 }
-
-
-    ?>
-  </div> <!-- container -->  
-  </body>
-</html>
-
+ 
+ //echo "</ul>";
+    ?>                    
+                    
+         
 <?php
 
   function get_thumbnail($userid,$albumid) {
@@ -83,7 +124,39 @@ foreach ($sxml->entry as $entry) {
 
     $entry = $xml->entry[$random];
     $media = $entry->children('http://search.yahoo.com/mrss/');
-    $thumbnail = $media->group->thumbnail[1]->attributes()->{'url'};
+    $thumbnail = $media->group->thumbnail[2]->attributes()->{'url'};
     return $thumbnail;
   }
-?>
+?>           
+                    
+                    
+                    
+                </div> <!-- PhotoGallery END -->   
+            </div> <!-- PAGE WRAP END -->  
+    	</div><!-- CONTENT WRAP -->
+        
+        <div id="footerBack" class="boneText">
+	<div id="footer">
+        <div id="footerLeft">
+            2011 © <a href="http://qdoba.com/" target="_blank">QDOBA MEXICAN GRILL</a>
+        </div>
+        <div id="footerCenter">
+            <a href="http://qdobastreettacos.com/events.php">EVENT PHOTOS</a> | <a href="http://qdobastreettacos.com/index.php">HOME</a> | <a href="http://qdobastreettacos.com/pdf/officialRules.pdf" target="_blank">OFFICIAL RULES</a>
+        </div>
+        <div id="footerRight">
+            <img src="images/footerLogo.png" alt="Qdoba">
+        </div>
+    </div>
+</div>
+<br><br>
+
+
+    
+    </div><!-- CONTAINER -->
+
+</div><!-- WRAPPER -->
+
+<div id="brownFooter"></div>
+
+
+</body></html>
