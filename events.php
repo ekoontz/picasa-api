@@ -5,14 +5,29 @@
   <head>
     <title>Listing albums</title>
     <style>
-body {
-   font-family: Verdana;      
- }
+   body {
+     font-family: Verdana;      
+   }
+
+   div.container {
+     width:100%;
+   border:1px dashed blue;
+   float:left;
+   }
+
+
+   div.tiles {
+   float:left;
+     margin:3px;
+   width:25%;
+     border:1px dashed green;
+   }
     </style>    
   </head>
   <body>
     <h1>Album Listing</h2>
-    <?php
+    <div class="container">  
+  <?php
     $userid = 'cooper81';
     
 // build feed URL
@@ -21,9 +36,10 @@ $feedURL = "http://picasaweb.google.com/data/feed/api/user/$userid?kind=album";
 // read feed into SimpleXML object
 $sxml = simplexml_load_file($feedURL);
     
-// get album names and number of photos in each
+$per_row = 4;
+$i = 0;
 
-echo "<ul>";
+// get album names and number of photos in each
 foreach ($sxml->entry as $entry) {      
   $media = $entry->children('http://search.yahoo.com/mrss/');  // test if $media = url
   $title = $entry->title;
@@ -35,11 +51,20 @@ foreach ($sxml->entry as $entry) {
 
   $thumbnail = get_thumbnail($userid,$albumid);
 
-  echo "<li><a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></li>\n"; 
+  $mod = $i % $per_row;
+  echo "<div class='tiles'>($i)($mod) <a href='$link'><img src='$thumbnail'/></a><a href='$link'>$title</a></div>\n"; 
+
+  if (($i % $per_row) == 0) {
+    echo "<br/>";
+  }
+  $i++;
+
+
 }
-echo "</ul>";
+
+
     ?>
-    
+  </div> <!-- container -->  
   </body>
 </html>
 
