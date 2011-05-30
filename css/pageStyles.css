@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ------------- Navigation -----------------*/
+
+#navWrap {
+	background-image: url(../images/navBack.png);	
+	height: 46px;
+	background-repeat: no-repeat;
+}
+#navigation {
+	width: 362px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 13px;
+}
+
+/* ------------- Other Global Elements -----------------*/
+
+#pageWrap {
+	padding-top: 30px;
+}
+
+/* ------------- Home Page -----------------*/
+
+#topPhotoLeft {
+	width: 497px;
+	height: 336px;
+	background-image: url(../images/topPhotoLeft.png);
+	float: left;
+}
+#topPhotoRight {
+	width: 449px;
+	height: 336px;
+	background-image: url(../images/topPhotoRight.png);
+	float: right;
+	background-repeat: no-repeat;
+}
+#topPhotoWrap {
+	padding-bottom: 10px;	
+}
+#bottomHomeWrap {
+	padding: 11px 0px 0px 0px;
+	clear: both;
+}
+#bhLeft {
+	background-image: url(../images/bottomLeftPhoto.png);
+	background-repeat: no-repeat;
+	width: 222px;
+	height: 253px;
+	float: left;
+	padding-right: 10px;
+}
+#bhLeftContent {
+	width: 171px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 55px;
+	font-size: 18px;
+	text-align: center;
+	color: #efe3c6;
+	font-weight: bold;
+	line-height: 22px;
+}
+#bhMiddle {
+	background-image: url(../images/bottomMiddlePhoto.png);
+	background-repeat: no-repeat;
+	width: 473px;
+	height: 253px;
+	float: left;
+	padding-right: 11px;
+}
+#bhRight {
+	background-repeat: no-repeat;
+	background-image: url(../images/bottomRightPhoto.png);
+	width: 250px;
+	height: 253px;
+	float: left;
+	padding-bottom: 10px;
+	text-align: center;
+}
+#bhRightContent {
+	width: 196px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 213px;
+}
+
+/* ------------- Form Page -----------------*/
+
+#formWrap {
+	height: 1047px;
+	background-image: url(../images/formBack.png);
+}
+#formContent {
+	width: 755px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 24px;
+	padding-top: 165px;
+}
+#formContent p {
+	padding-bottom: 15px;
+	font-size: 13px;
+}
+#formFieldsALL {
+	line-height: 14px;
+	padding-top: 40px;
+}
+#formFieldCol1 {
+	width: 145px;
+	text-align: right; 
+	float: left;
+}
+#formFieldCol2 {
+	width: 230px;
+	float: left;
+	padding-left: 30px;
+}
+#formFieldCol3 {
+	width: 300px;
+	float: left;
+	padding-left: 50px;
+	line-height: 18px;
+}
+.formSpacing {
+	padding-bottom: 21px;
+	height: 20px;
+}
+#submitBtn {
+	width: 165px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 60px;
+	clear: both;
+}
+#tallPage {
+	height: 500px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 50px;
+}
+
+/* ------------- 2010 PAGE -------------- */
+
+#mediaHolder {
+	padding-top: 40px;
+}
+#mediaPhotos {
+	width: 500px;
+	float: left
+}
+#mediaVideo {
+	width: 466px;
+	float: right;
+}
+
+/* ------------- Gallery PAGE -------------- */
+
+#photoGallery {
+	padding-top: 15px;	
+}
+.galleryRow {
+	padding-bottom: 25px;	
+}
+#galImageWrap {
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+}
