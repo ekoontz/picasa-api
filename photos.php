@@ -68,9 +68,10 @@ height:150px;
 <!--  smart back button -->
 <?php 
 
-$albumlink=$_GET["albumid"];
+$albumid = urlencode($_GET["albumid"]);
+$userid = urlencode($_GET["userid"]);
 
-echo "<a href=\"album.php?albumid=$albumlink\">BACK TO PHOTOS dude</a>"
+echo "<a href=\"album.php?albumid=$albumid&userid=$userid\">  All Photos</a>"
 
 ?>
 <p>
