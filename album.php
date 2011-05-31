@@ -118,9 +118,10 @@ $thumbnail->attributes()->{'url'} . "\" id=\"qdoba\"    />";
       echo "</div>\n";*/
       
 
+      $albumid = urlencode($albumid);
+      $userid = urlencode($userid);
 
-
-      echo "<a href=\"photos.php?enlargement=$fullsize&album=$albumid\" >";
+      echo "<a href=\"photos.php?enlargement=$fullsize&albumid=$albumid&userid=$userid\" >";
       
       echo "<img src=\"" .
 $thumbnail->attributes()->{'url'} . "\" id=\"qdoba\"    />";
