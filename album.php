@@ -101,7 +101,7 @@ Thanks for hanging out at our Free Street Taco event!  We hope you had a great t
       $width = $gphoto->width;
       
       $media = $entry->children('http://search.yahoo.com/mrss/');
-      $thumbnail = $media->group->thumbnail[2];
+      $thumbnail = $media->group->thumbnail[1];
       $tags = $media->group->keywords;
       
       echo "<div class='tiles'>";
