@@ -71,7 +71,7 @@ height:150px;
 $albumid = urlencode($_GET["albumid"]);
 $userid = urlencode($_GET["userid"]);
 
-echo "<a href=\"album.php?albumid=$albumid&userid=$userid\">  All Photos</a>"
+echo "<a href=\"album.php?albumid=$albumid&userid=$userid\">Back to Photos</a>"
 
 ?>
 <p>
