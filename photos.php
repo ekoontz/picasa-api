@@ -35,18 +35,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 </script>
 
-
-
-
-
-
-
+<!-- this doesn't seem to do anything.. -->
 <link rel="image_src" href="http://qdobastreettacos.com/images/eventPhotos/031311/001t.jpg" />
 
 <script type="text/javascript">
 <!--
-function locPop1() {
-	window.open( "http://www.facebook.com/sharer.php?u=http://www.libraryschoolpdx.com/photos.php", "myWindow", "status = 1, height = 400, width = 600, resizable = 0" )
+function locPop1( image_source ) {
+	window.open( "http://www.facebook.com/sharer.php?u="+image_source, "myWindow", "status = 1, height = 400, width = 600, resizable = 0" )
 }
 //-->
 </script>
@@ -89,6 +84,7 @@ function locPop1() {
 
 $albumid = urlencode($_GET["albumid"]);
 $userid = urlencode($_GET["userid"]);
+$big = $_GET['enlargement'];
 
 echo "<a href=\"album.php?albumid=$albumid&userid=$userid\">Back to Photos</a>"
 
@@ -99,15 +95,13 @@ echo "<a href=\"album.php?albumid=$albumid&userid=$userid\">Back to Photos</a>"
 Share your photo with your friends on Facebook you’ll instantly receive a coupon, redeemable at any Puget Sound area Qdoba location!</p>
 <br /><br />
 
-				<a href="coupon.php" onClick="locPop1()" style="font-weight:bold;"><img src="images/fbshare.jpg" alt="Share" /></a>
+				<a href="coupon.php" onClick="locPop1('<?php echo $big; ?>')" style="font-weight:bold;"><img src="images/fbshare.jpg" alt="Share" /></a>
 				<br /><br />
 <?php
 
       
       echo "<div class='photo'>";
       
-$big = $_GET['enlargement'];
-
 echo "<img src=\"$big\">";
 
     
